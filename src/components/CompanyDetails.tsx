@@ -54,9 +54,30 @@ const CompanyDetails: React.FC<CompanyDetailsProps> = ({ company }) => {
                 <li key={materialIndex}>{renderLink(material, materialIndex)}</li>
               ))}
             </ul>
+            {role.interviewTips && (
+              <>
+                <h5 className="font-semibold mt-3 mb-1">Interview Tips:</h5>
+                <ul className="list-disc list-inside text-green-500">
+                  {role.interviewTips.map((tip, tipIndex) => (
+                    <li key={tipIndex}>{tip}</li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         </div>
       ))}
+
+      {company.companyInterviewTips && (
+        <div className="mt-6">
+          <h3 className="text-xl font-semibold mb-3">Company Interview Tips</h3>
+          <ul className="list-disc list-inside text-green-500">
+            {company.companyInterviewTips.map((tip, index) => (
+              <li key={index}>{tip}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold mb-3 flex items-center">
